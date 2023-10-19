@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plat-team
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: plat-team
+  template:
+    metadata:
+      labels:
+        app: plat-team
+    spec:
+      containers:
+      - name:  plat-team
+        image: ghcr.io/paulopaniniorg/plat-team:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+      imagePullSecrets:
+      - name: github-secret

@@ -1,0 +1,7 @@
+site_name: plat-team
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core
